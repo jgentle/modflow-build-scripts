@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# W. Cyrus Proctor
+# 2016-06-11
+# Patching modflow-96 makefile for
+# use with Intel compiler. Verify
+# results as output is subject to
+# change in 16 years.
+
+
+ml purge
+ml intel
+
+#export modflow=/home/03325/jgentle/modflow/cyrus
+export modflow=${HOME}/modflow
+
+tar xvfz modflw96.3_3.source.tar.gz
+cp modflow.makefile.patch ${modflow}/modflw96.3_3/src
+cd ${modflow}/modflw96.3_3/src
+patch Makefile < modflow.makefile_noopt.patch
+make -j 8

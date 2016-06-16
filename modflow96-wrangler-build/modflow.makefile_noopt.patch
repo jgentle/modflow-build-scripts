@@ -1,0 +1,28 @@
+--- Makefile.orig	2000-05-02 14:13:26.000000000 -0500
++++ Makefile	2016-06-11 11:03:00.000000000 -0500
+@@ -30,13 +30,13 @@
+ SGI     = -O -32 -static
+ OptM    = $(Solaris)
+ DbgF    = -C -g
+-FFLAGS  = $(OptM)
++FFLAGS  = -O0
+ 
+ # Compiler name
+-F77    = f77
++FC    = ifort
+ 
+ # link editor flags for linking in Fortran library statically under Solaris
+-LDFLAGS = -nolib -Bstatic -lF77 -Bdynamic -lsunmath -lm -lcx -lc
++LDFLAGS =
+ 
+ #*******************************************************************
+ #***** You should not need to modify anything below this line. *****
+@@ -59,7 +59,7 @@
+ 
+ $(EXE): $(OBJS)
+ 	@echo
+-	$(F77) $(FFLAGS) $(OBJS) $(LDFLAGS) -o $@
++	$(FC) $(FFLAGS) $(OBJS) $(LDFLAGS) -o $@
+ 	strip $@
+ 
+ chkdir:

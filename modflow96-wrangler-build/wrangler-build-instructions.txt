@@ -1,0 +1,126 @@
+MODFLOW 96 Wrangler Build Usage Notes
+2016.06.15
+John Gentle
+
+_________________________
+
+Notes:
+
+There are two scripts to build MODFLOW 96, one is optimized and one is not.
+These instructions detail using the optimized build scripts.
+In order to use the unoptimized build script, simply substitute he correct file name as follows:
+
+    Wherever you see:  'modflow.wra.build'
+    Replace it with:  'modflow.wra_noopt.build'
+
+Do NOT run these in the same location.
+To build the alternative version you need to start with a fresh modflow96-wrangler-build copy.
+
+_________________________
+
+Usage Instructions:
+
+1. Copy cyrus-wrangler-build directory from UT Box into Wrangler home directory.
+Requires downloading to local system first, then scp files up to wrangler:
+
+    $ scp /path/to/local/copy/modflow96-wrangler-build USERNAME@wrangler.tacc.utexas.edu:/home/NUMBER/USERNAME
+
+2. Connect to wrangler:
+
+    $ ssh USERNAME@wrangler.tac.utexas.edu
+
+3. cd into cyrus-wrangler-build directory
+
+    $ cd modflow96-wrangler-build
+
+4. Make the build script executable:
+
+    $ chmod +x modflow.wra.build
+
+5. Run the build script:
+
+    $ ./modflow.wra.build
+
+6. Verify that you have a folder named modflw96.3_3
+
+    $ ll
+
+7. Change directories into the modflw96.3_3 folder:
+
+    $ cd modflw96.3_3
+
+8. Verify that there is an executable in the /bin directory:
+
+    $ cd bin && ls bin
+
+    (look for 'modflw96' )
+
+9. Test running modflow:
+
+    $ modflw96
+    Enter the name of the NAME FILE:
+
+    ** This means success.
+    Press CTRL + C to halt the script.
+
+10. Export modflow as an environment variable so you can use it from anywhere:
+
+    $ export PATH=${PATH}:${HOME}/modflow96-wrangler-build/modflw96.3_3/bin
+
+11. Verify that the binary is now in the system path:
+
+    $ echo $PATH
+
+    Look for: .:/home/NUMBER/USERNAME/modflow96-wrangler-build/modflw96.3_3/bin appended to the output.
+
+12. Verify modflow works from anywhere:
+
+    $ cd 
+    $ modflw96.3_3
+    Enter the name of the NAME FILE:
+
+    ** This means success.
+    Press CTRL + C to halt the script.
+
+13. Upload GAM files to your $HOME directory on wrangler using scp command again.
+
+14. Get an interactiove node to work in:
+
+    $ idev
+
+    This will eventually chnage your prompt from 'login' to 'c###-###' which means you are now working on a node.
+
+15. Run your simulations!
+
+16. Use scp to copy your output.dat files back to your local system as well.
+
+_________________________
+
+From Cyrus Proctor
+(creator of the makefile patches and build scripts, bringer of light =P)
+
+Okay, you can find the two files you need in `/home/03325/jgentle/modflow/cyrus` 
+which are `modflow.wra.build` (the build script) 
+and `modflow.makefile.patch` (the patch file for the Makefile). 
+
+Open `modflow.wra.build`, 
+verify the `${modflow}` is the absolute path where you are located, 
+verify the tarball is in the same directory, 
+and run the build script with './modflow.wra.build` 
+and you'll get the executable in the modflow `bin` directory.
+
+Inside the original Makefile, the variable `F77` has special meaning. 
+To update it, you simply change the variable name from `F77` to `FC` (or something else), 
+and then update the rest. The patch file changes this, 
+adds the optimization flags `-O3 -xHOST` and uses ifort for compilation. 
+
+I strongly suggest that you compare output of this executable to known output generated back in 2000. 
+Updating compilers, architectures, and build flags will very likely land you different results. 
+You all need to verify that they are within whatever tolerance is acceptable. 
+In my experience working in the nuclear industry where legacy codes are king, 
+being able to upgrade and reproduce results are imperative -- I would assume the same for USGS.
+
+Good luck and have fun!
+
+_________________________
+(EOF)

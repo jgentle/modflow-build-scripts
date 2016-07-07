@@ -124,6 +124,10 @@ Usage Instructions:
 
 15. Upload GAM files to your working directory on HPC system using scp command.
 
+    ```
+    $ scp user_name@hpc.tacc.utexas.edu:/path/to/source/files/ /path/to/destination/for/files
+    ```
+
 16. Get an interactive node to work in:
 
     ```

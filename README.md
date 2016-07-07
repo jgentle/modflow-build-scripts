@@ -39,7 +39,7 @@ Usage Instructions:
 3. Download a copy of the build scripts fom github:
 
     ```
-    $ git clone git@github.com:jgentle/modflow-build-scripts.git
+    $ git clone https://github.com/jgentle/modflow-build-scripts.git
     ```
 
 4. cd into the modflow-build-scripts repository directory
@@ -100,7 +100,7 @@ Usage Instructions:
 12. Export modflow as an environment variable so you can use it from anywhere:
 
     ```
-    $ export PATH=${PATH}:${PWD}/modflw96.3_3/bin
+    $ export PATH=${PATH}:${PWD}
     ```
 
 13. Verify that the binary is now in the system path:
@@ -109,7 +109,10 @@ Usage Instructions:
     $ echo $PATH
     ```
 
-    Look for: /Path/To/Build/modflw96.3_3/bin appended to the output.
+    Look for the following appended to the output: 
+        ```
+        :/path/to/build/scripts/modflw96.3_3/bin
+        ```
 
 14. Verify modflow works from anywhere:
 

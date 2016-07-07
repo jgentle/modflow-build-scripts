@@ -21,4 +21,4 @@ cd ${modflow}/modflw96.3_3/src
 patch Makefile < modflow.makefile.patch
 make -j 8
 
-export PATH=${PATH}:${PWD}/modflw96.3_3/bin
+# export PATH=${PATH}:${PWD}/modflw96.3_3/bin

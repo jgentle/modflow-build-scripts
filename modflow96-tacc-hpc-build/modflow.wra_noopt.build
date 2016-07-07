@@ -16,7 +16,9 @@ ml intel
 export modflow=${PWD}
 
 tar xvfz modflw96.3_3.source.tar.gz
-cp modflow.makefile.patch ${modflow}/modflw96.3_3/src
+cp modflow.makefile_noopt.patch ${modflow}/modflw96.3_3/src
 cd ${modflow}/modflw96.3_3/src
-patch Makefile < modflow.makefile.patch
+patch Makefile < modflow.makefile_noopt.patch
 make -j 8
+
+export PATH=${PATH}:${PWD}/modflw96.3_3/bin

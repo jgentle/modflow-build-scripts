@@ -12,10 +12,11 @@ ml purge
 ml intel
 
 #export modflow=/home/03325/jgentle/modflow/cyrus
-export modflow=${HOME}/modflow
+# export modflow=${HOME}/modflow
+export modflow=${PWD}
 
 tar xvfz modflw96.3_3.source.tar.gz
-cp modflow.makefile.patch ${modflow}/modflw96.3_3/src
+cp modflow.makefile_noopt.patch ${modflow}/modflw96.3_3/src
 cd ${modflow}/modflw96.3_3/src
 patch Makefile < modflow.makefile_noopt.patch
 make -j 8

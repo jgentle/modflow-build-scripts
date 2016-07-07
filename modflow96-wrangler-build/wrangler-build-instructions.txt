@@ -65,13 +65,14 @@ Requires downloading to local system first, then scp files up to wrangler:
 
 10. Export modflow as an environment variable so you can use it from anywhere:
 
-    $ export PATH=${PATH}:${HOME}/modflow96-wrangler-build/modflw96.3_3/bin
+    $ export PATH=${PATH}:${PWD}/modflw96.3_3/bin
+    (OLD COMMAND: $ export PATH=${PATH}:${HOME}/modflow96-wrangler-build/modflw96.3_3/bin)
 
 11. Verify that the binary is now in the system path:
 
     $ echo $PATH
 
-    Look for: .:/home/NUMBER/USERNAME/modflow96-wrangler-build/modflw96.3_3/bin appended to the output.
+    Look for: .:/Path/To/Build/modflw96.3_3/bin appended to the output.
 
 12. Verify modflow works from anywhere:
 
@@ -82,7 +83,7 @@ Requires downloading to local system first, then scp files up to wrangler:
     ** This means success.
     Press CTRL + C to halt the script.
 
-13. Upload GAM files to your $HOME directory on wrangler using scp command again.
+13. Upload GAM files to your working directory on HPC system using scp command again.
 
 14. Get an interactiove node to work in:
 

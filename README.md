@@ -91,6 +91,7 @@ Usage Instructions:
     ** This means success.
     Press CTRL + C to halt the script.
 
+
 15. Upload GAM files to your working directory on HPC system using scp command.
 
 16. Get an interactive node to work in:

@@ -67,9 +67,11 @@ Usage Instructions:
 11. Test running modflow:
 
     $ modflw96
+    
     Enter the name of the NAME FILE:
 
-    ** This means success.
+    ** This means success! **
+
     Press CTRL + C to halt the script.
 
 12. Export modflow as an environment variable so you can use it from anywhere:
@@ -87,9 +89,11 @@ Usage Instructions:
     $ cd $HOME
 
     $ modflw96.3_3
+
     Enter the name of the NAME FILE:
 
-    ** This means success.
+    ** This means success! **
+
     Press CTRL + C to halt the script.
 
 

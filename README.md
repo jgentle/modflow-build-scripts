@@ -42,13 +42,13 @@ Usage Instructions:
     $ git clone git@github.com:jgentle/modflow-build-scripts.git
     ```
 
-4. cd into the modflow-build-scripts directory
+4. cd into the modflow-build-scripts repository directory
 
     ```
     $ cd modflow-build-scripts
     ```
 
-5. cd into the folder where the scripts live:
+5. cd into the subdirectory where the build scripts are located:
 
     ```
     $ cd modflow96-tacc-hpc-build

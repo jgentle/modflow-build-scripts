@@ -84,8 +84,8 @@ Usage Instructions:
 
 14. Verify modflow works from anywhere:
 
-    $ cd 
-    
+    $ cd $HOME
+
     $ modflw96.3_3
     Enter the name of the NAME FILE:
 

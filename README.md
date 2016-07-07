@@ -10,13 +10,15 @@ Notes:
 
 There are two scripts to build MODFLOW 96, one is optimized and one is not.
 These instructions detail using the optimized build scripts.
-In order to use the unoptimized build script, simply substitute he correct file name as follows:
+
+In order to use the unoptimized build script, simply substitute the correct file name as follows:
 
     Wherever you see:  'modflow.wra.build'
     Replace it with:  'modflow.wra_noopt.build'
 
-Do NOT run these in the same location.
-To build the alternative version you need to start with a fresh modflow96-wrangler-build copy.
+!!! Do NOT run these build scripts in the same location !!!
+
+To build the alternative version you need to create a new target directory for the noopt build and follow the steps again from that location.
 
 ___
 
